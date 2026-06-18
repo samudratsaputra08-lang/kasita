@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useMemo } from 'react';
 import { deleteTransactionFirestore, subscribeTransactions, Transaction } from '../lib/db';
 import { logoutUser } from '../lib/firebase';
-import { Plus, TrendingUp, TrendingDown, Target, Trash2, LogOut, Copy, CheckCircle2 } from 'lucide-react';
+import { Plus, TrendingUp, TrendingDown, Target, Trash2, LogOut, Copy, CheckCircle2, Link } from 'lucide-react';
 import AddTransactionModal from './AddTransactionModal';
 import { PieChart, Pie, Cell, ResponsiveContainer, Tooltip as RechartsTooltip } from 'recharts';
 
@@ -71,6 +71,13 @@ export default function DashboardScreen({ roomId, onReset }: { roomId: string, o
           <h1 className="text-2xl font-serif font-bold italic tracking-tight text-pink-950">Kasita</h1>
         </div>
         <div className="flex items-center gap-2">
+          <button 
+            onClick={onReset}
+            className="w-10 h-10 border border-pink-200 bg-white rounded-full flex items-center justify-center hover:bg-pink-50 transition text-pink-950"
+            title="Ganti/Masuk Kode Ruang Lain"
+          >
+            <Link className="w-5 h-5" />
+          </button>
           <button 
             onClick={handleCopy}
             className="w-10 h-10 border border-pink-200 bg-white rounded-full flex items-center justify-center hover:bg-pink-50 transition text-pink-950"

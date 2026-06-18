@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { createSpace } from '../lib/db';
+import { createSpace, setUserRoomId } from '../lib/db';
+import { auth } from '../lib/firebase';
 import { FileSpreadsheet, Link, Plus, ArrowRight } from 'lucide-react';
 
 export default function SetupScreen({ onComplete }: { onComplete: (id: string) => void }) {
@@ -15,6 +16,9 @@ export default function SetupScreen({ onComplete }: { onComplete: (id: string) =
       const id = Math.random().toString(36).substring(2, 8).toUpperCase();
       await createSpace(id);
       localStorage.setItem('kasitaRoomId', id);
+      if (auth.currentUser) {
+        await setUserRoomId(auth.currentUser.uid, id);
+      }
       onComplete(id);
     } catch (err: any) {
       console.error(err);
@@ -30,8 +34,12 @@ export default function SetupScreen({ onComplete }: { onComplete: (id: string) =
     setLoading(true);
     setError('');
     try {
-      localStorage.setItem('kasitaRoomId', roomId.trim().toUpperCase());
-      onComplete(roomId.trim().toUpperCase());
+      const id = roomId.trim().toUpperCase();
+      localStorage.setItem('kasitaRoomId', id);
+      if (auth.currentUser) {
+        await setUserRoomId(auth.currentUser.uid, id);
+      }
+      onComplete(id);
     } catch (err: any) {
       console.error(err);
       setError('Gagal menghubungkan.');

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { initAuth } from './lib/firebase';
+import { initAuth, auth } from './lib/firebase';
+import { getUserRoomId, setUserRoomId } from './lib/db';
 import AuthScreen from './components/AuthScreen';
 import SetupScreen from './components/SetupScreen';
 import DashboardScreen from './components/DashboardScreen';
@@ -11,11 +12,16 @@ export default function App() {
 
   useEffect(() => {
     const unsub = initAuth(
-      (user) => {
+      async (user) => {
         setNeedsAuth(false);
-        const storedId = localStorage.getItem('kasitaRoomId');
+        const storedId = await getUserRoomId(user.uid);
         if (storedId) {
           setRoomId(storedId);
+        } else {
+          const localStoredId = localStorage.getItem('kasitaRoomId');
+          if (localStoredId) {
+            setRoomId(localStoredId);
+          }
         }
         setLoading(false);
       },
@@ -29,8 +35,8 @@ export default function App() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-[#F9F7F2] flex items-center justify-center">
-        <div className="w-10 h-10 border-4 border-[#E5E2D9] border-t-[#5A5A40] rounded-full animate-spin" />
+      <div className="min-h-screen bg-pink-50 flex items-center justify-center">
+        <div className="w-10 h-10 border-4 border-pink-200 border-t-pink-600 rounded-full animate-spin" />
       </div>
     );
   }
@@ -50,8 +56,15 @@ export default function App() {
   return (
     <DashboardScreen 
       roomId={roomId} 
-      onReset={() => {
+      onReset={async () => {
         localStorage.removeItem('kasitaRoomId');
+        if (auth.currentUser) {
+          try {
+            await setUserRoomId(auth.currentUser.uid, '');
+          } catch (e) {
+            console.error(e);
+          }
+        }
         setRoomId('');
       }}
     />

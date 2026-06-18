@@ -39,7 +39,7 @@ export default function AuthScreen({ onLogin }: { onLogin: () => void }) {
             Tabungan Bersama <Sparkles className="w-3 h-3" />
           </p>
           <p className="text-pink-600 mt-4 text-sm leading-relaxed">
-            Pantau pengeluaran dan tabungan bersama pasangan secara transparan.
+            Masuk dengan Google untuk mulai atau gabung dengan pasangan menggunakan Kode Ruang.
           </p>
         </div>
 
