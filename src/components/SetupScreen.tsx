@@ -42,13 +42,13 @@ export default function SetupScreen({ onComplete }: { onComplete: (id: string) =
 
   if (mode === 'select') {
     return (
-      <div className="min-h-screen bg-[#F9F7F2] flex flex-col items-center justify-center p-4">
-        <div className="max-w-md w-full bg-white rounded-[32px] border border-[#E5E2D9] shadow-sm p-8 space-y-6 text-center">
-          <div className="w-16 h-16 bg-[#5A5A40] text-white rounded-full flex items-center justify-center mx-auto mb-4">
+      <div className="min-h-screen bg-pink-50 flex flex-col items-center justify-center p-4">
+        <div className="max-w-md w-full bg-white rounded-[32px] border border-pink-200 shadow-sm p-8 space-y-6 text-center">
+          <div className="w-16 h-16 bg-pink-600 text-white rounded-full flex items-center justify-center mx-auto mb-4">
             <FileSpreadsheet className="w-8 h-8" />
           </div>
-          <h2 className="text-3xl font-serif text-[#3D3D33] italic">Mulai Tabungan</h2>
-          <p className="text-[#8C8A7D] text-sm">
+          <h2 className="text-3xl font-serif text-pink-950 italic">Mulai Tabungan</h2>
+          <p className="text-pink-600 text-sm">
             Pilih apakah Anda ingin membuat ruang baru atau bergabung dengan pasangan Anda.
           </p>
 
@@ -56,35 +56,35 @@ export default function SetupScreen({ onComplete }: { onComplete: (id: string) =
             <button
               onClick={() => handleCreateNew()}
               disabled={loading}
-              className="w-full flex items-center justify-between p-5 rounded-2xl border border-[#E5E2D9] hover:bg-[#FAF9F6] transition-colors text-left group"
+              className="w-full flex items-center justify-between p-5 rounded-2xl border border-pink-200 hover:bg-pink-50 transition-colors text-left group"
             >
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-[#F1EFE9] text-[#5A5A40] rounded-full flex items-center justify-center group-hover:bg-[#E5E2D9] transition-colors">
+                <div className="w-10 h-10 bg-pink-100 text-pink-600 rounded-full flex items-center justify-center group-hover:bg-pink-200 transition-colors">
                   <Plus className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#3D3D33]">Buat Baru</h3>
-                  <p className="text-xs text-[#8C8A7D] mt-0.5">Buat ruang baru.</p>
+                  <h3 className="font-semibold text-pink-950">Buat Baru</h3>
+                  <p className="text-xs text-pink-600 mt-0.5">Buat ruang baru.</p>
                 </div>
               </div>
-              <ArrowRight className="w-5 h-5 text-[#E5E2D9] group-hover:text-[#5A5A40] transition-colors" />
+              <ArrowRight className="w-5 h-5 text-pink-300 group-hover:text-pink-600 transition-colors" />
             </button>
 
             <button
               onClick={() => setMode('join')}
               disabled={loading}
-              className="w-full flex items-center justify-between p-5 rounded-2xl border border-[#E5E2D9] hover:bg-[#FAF9F6] transition-colors text-left group"
+              className="w-full flex items-center justify-between p-5 rounded-2xl border border-pink-200 hover:bg-pink-50 transition-colors text-left group"
             >
               <div className="flex items-center gap-4">
-                <div className="w-10 h-10 bg-[#F1EFE9] text-[#D4A373] rounded-full flex items-center justify-center group-hover:bg-[#E5E2D9] transition-colors">
+                <div className="w-10 h-10 bg-pink-100 text-rose-500 rounded-full flex items-center justify-center group-hover:bg-pink-200 transition-colors">
                   <Link className="w-5 h-5" />
                 </div>
                 <div>
-                  <h3 className="font-semibold text-[#3D3D33]">Gabung</h3>
-                  <p className="text-xs text-[#8C8A7D] mt-0.5">Masukkan Kode dari pasangan.</p>
+                  <h3 className="font-semibold text-pink-950">Gabung</h3>
+                  <p className="text-xs text-pink-600 mt-0.5">Masukkan Kode dari pasangan.</p>
                 </div>
               </div>
-              <ArrowRight className="w-5 h-5 text-[#E5E2D9] group-hover:text-[#D4A373] transition-colors" />
+              <ArrowRight className="w-5 h-5 text-pink-300 group-hover:text-rose-500 transition-colors" />
             </button>
           </div>
         </div>
@@ -93,13 +93,13 @@ export default function SetupScreen({ onComplete }: { onComplete: (id: string) =
   }
 
   return (
-    <div className="min-h-screen bg-[#F9F7F2] flex flex-col items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-[32px] border border-[#E5E2D9] shadow-sm p-8 space-y-6">
-        <button onClick={() => setMode('select')} className="text-xs font-bold uppercase tracking-widest text-[#5A5A40] border-b border-[#5A5A40] mb-2 inline-block hover:opacity-80 transition-opacity">
+    <div className="min-h-screen bg-pink-50 flex flex-col items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white rounded-[32px] border border-pink-200 shadow-sm p-8 space-y-6">
+        <button onClick={() => setMode('select')} className="text-xs font-bold uppercase tracking-widest text-pink-600 border-b border-pink-600 mb-2 inline-block hover:opacity-80 transition-opacity">
           &larr; Kembali
         </button>
-        <h2 className="text-3xl font-serif text-[#3D3D33] italic">Masukkan Kode</h2>
-        <p className="text-[#8C8A7D] text-sm">
+        <h2 className="text-3xl font-serif text-pink-950 italic">Masukkan Kode</h2>
+        <p className="text-pink-600 text-sm">
           Minta Kode Ruang dari pasangan Anda dan tempel di bawah ini.
         </p>
 
@@ -110,7 +110,7 @@ export default function SetupScreen({ onComplete }: { onComplete: (id: string) =
               value={roomId}
               onChange={(e) => setRoomId(e.target.value)}
               placeholder="Contoh: AB12CD"
-              className="w-full border border-[#E5E2D9] rounded-2xl p-4 focus:outline-none focus:border-[#5A5A40] bg-[#FAF9F6] text-[#3D3D33] uppercase"
+              className="w-full border border-pink-200 rounded-2xl p-4 focus:outline-none focus:border-pink-400 bg-pink-50 text-pink-950 uppercase"
               required
             />
           </div>
@@ -118,7 +118,7 @@ export default function SetupScreen({ onComplete }: { onComplete: (id: string) =
           <button
             type="submit"
             disabled={loading || !roomId}
-            className="w-full bg-[#5A5A40] text-white font-medium py-4 rounded-2xl hover:opacity-90 transition-opacity disabled:opacity-50"
+            className="w-full bg-pink-600 text-white font-medium py-4 rounded-2xl hover:opacity-90 transition-opacity disabled:opacity-50"
           >
             {loading ? 'Menghubungkan...' : 'Gabung Sekarang'}
           </button>

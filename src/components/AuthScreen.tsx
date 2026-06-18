@@ -25,20 +25,20 @@ export default function AuthScreen({ onLogin }: { onLogin: () => void }) {
   };
 
   return (
-    <div className="min-h-screen bg-[#F9F7F2] flex flex-col items-center justify-center p-4">
-      <div className="max-w-md w-full bg-white rounded-[32px] border border-[#E5E2D9] shadow-sm p-8 text-center space-y-8 relative overflow-hidden">
-        <div className="absolute -top-12 -right-12 w-32 h-32 bg-[#D4A373] rounded-full blur-3xl opacity-20 pointer-events-none" />
-        <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-[#5A5A40] rounded-full blur-3xl opacity-20 pointer-events-none" />
+    <div className="min-h-screen bg-pink-50 flex flex-col items-center justify-center p-4">
+      <div className="max-w-md w-full bg-white rounded-[32px] border border-pink-200 shadow-sm p-8 text-center space-y-8 relative overflow-hidden">
+        <div className="absolute -top-12 -right-12 w-32 h-32 bg-pink-300 rounded-full blur-3xl opacity-20 pointer-events-none" />
+        <div className="absolute -bottom-12 -left-12 w-32 h-32 bg-rose-400 rounded-full blur-3xl opacity-20 pointer-events-none" />
         
         <div className="relative z-10 flex flex-col items-center">
-          <div className="w-16 h-16 bg-[#5A5A40] text-white rounded-full flex items-center justify-center mb-6">
+          <div className="w-16 h-16 bg-pink-600 text-white rounded-full flex items-center justify-center mb-6">
             <Wallet className="w-8 h-8" />
           </div>
-          <h1 className="text-4xl font-serif font-bold italic tracking-tight text-[#3D3D33] mb-2">Kasita</h1>
-          <p className="text-xs font-bold uppercase tracking-widest text-[#8C8A7D] flex items-center justify-center gap-1">
+          <h1 className="text-4xl font-serif font-bold italic tracking-tight text-pink-950 mb-2">Kasita</h1>
+          <p className="text-xs font-bold uppercase tracking-widest text-[#8C8A7D] flex items-center justify-center gap-1 text-pink-600">
             Tabungan Bersama <Sparkles className="w-3 h-3" />
           </p>
-          <p className="text-[#8C8A7D] mt-4 text-sm leading-relaxed">
+          <p className="text-pink-600 mt-4 text-sm leading-relaxed">
             Pantau pengeluaran dan tabungan bersama pasangan secara transparan.
           </p>
         </div>
@@ -52,10 +52,10 @@ export default function AuthScreen({ onLogin }: { onLogin: () => void }) {
         <button
           onClick={handleLogin}
           disabled={loading}
-          className="relative z-10 w-full flex items-center justify-center gap-3 bg-white border border-[#E5E2D9] text-[#3D3D33] font-medium py-4 px-4 rounded-2xl hover:bg-[#FAF9F6] transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
+          className="relative z-10 w-full flex items-center justify-center gap-3 bg-white border border-pink-200 text-pink-950 font-medium py-4 px-4 rounded-2xl hover:bg-pink-50 transition-colors duration-200 disabled:opacity-50 disabled:cursor-not-allowed"
         >
           {loading ? (
-            <div className="w-5 h-5 border-2 border-[#5A5A40] border-t-transparent rounded-full animate-spin" />
+            <div className="w-5 h-5 border-2 border-pink-600 border-t-transparent rounded-full animate-spin" />
           ) : (
             <>
               <svg className="w-5 h-5" viewBox="0 0 24 24">
